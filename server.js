@@ -28,12 +28,12 @@ const port = process.env.PORT || 8080;
 app.get('/', (req, res, next) =>
 {
 	//app.use(express.static(__dirname + '/docs'));
-	res.setHeader('Content-Type', 'text/html');
+	res.setHeader('Content-Type', 'application/json');
 	res.setHeader('Access-Control-Allow-Origin', req.header('Origin') || '*');
 	res.setHeader('Access-Control-Allow-Headers', '*');
 	res.setHeader("Access-Control-Allow-Methods", "GET,PUT,POST,DELETE,OPTIONS,PATCH");
 	res.setHeader('Access-Control-Allow-Credentials', true);
-	res.statusCode = 200;
+	res.status(200);
 	next();
 });
 
