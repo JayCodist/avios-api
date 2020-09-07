@@ -1,12 +1,9 @@
-const Product = require('../models/products.js');
-const getUser = require('../utils.js').getUser;
-
-
+const Product = require('../models/product.js');
 
 // List existing products
 exports.index = function (req, res) 
 {
-    const products = Product.find().then(products =>
+    Product.find().then(products =>
     {
         return res.json(products)
     })
@@ -53,6 +50,7 @@ exports.update = function (req, res)
     product.product_name = req.body.product_name || product.product_name;
     product.product_varieties = req.body.product_varieties || product.product_varieties;
     product.product_description = req.body.product_description || product.value;
+    product.date_edited = Date.now();
     product.save(err =>
     {
         if (err)
