@@ -1,0 +1,22 @@
+{
+  "name": "avios-api",
+  "version": "1.0.0",
+  "description": "express api for avios app",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "engines": {
+    "node": "^10",
+    "npm": "^6"
+  },
+  "author": "jaycodist@gmail.com",
+  "license": "ISC",
+  "dependencies": {
+    "body-parser": "^1.19.0",
+    "dotenv": "^8.1.0",
+    "express": "^4.17.1",
+    "mongoose": "^5.7.1"
+  }
+}
