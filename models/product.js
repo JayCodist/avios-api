@@ -24,8 +24,7 @@ const productSchema = mongoose.Schema({
     },
     product_description: {
         type: String,
-        default: "",
-        required: true
+        default: ""
     },
     product_varieties: [varietiesSchema],
     date_uploaded: {

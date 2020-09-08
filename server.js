@@ -3,6 +3,7 @@ const bodyParser = require('body-parser');
 require('dotenv').config();
 const mongoose = require('mongoose');
 const apiRoutes = require('./api-routes.js');
+const cors = require("cors");
 
 const app = express();
 // Configure bodyparser to handle post requests
@@ -10,6 +11,8 @@ app.use(bodyParser.urlencoded({
    extended: true
 }));
 app.use(bodyParser.json());
+
+app.use(cors());
 
 mongoose.connect(process.env.MONGODB_URL, { 
 	useNewUrlParser: true,
@@ -33,7 +36,7 @@ app.get('/', (req, res, next) =>
 	res.setHeader('Access-Control-Allow-Headers', '*');
 	res.setHeader("Access-Control-Allow-Methods", "GET,PUT,POST,DELETE,OPTIONS,PATCH");
 	res.setHeader('Access-Control-Allow-Credentials', true);
-	res.status(200);
+	res.status = 200;
 	next();
 });
 
