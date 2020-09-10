@@ -7,5 +7,7 @@ router.route('/').get(productsController.index)
     .patch(productsController.update)
     .put(productsController.update)
     .delete(productsController.delete);
+
+router.route('/:id').get(productsController.find)
 // Export API routes
 module.exports = router;

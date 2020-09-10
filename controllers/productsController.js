@@ -7,10 +7,29 @@ exports.index = function (req, res)
     {
         return res.json(products.map(product => ({ id: product._id, ...product._doc })))
     })
-    .catch(e =>
+    .catch(error =>
     {
-        console.error("Error occured with fetching products");
-        res.json([]);
+        res.json({ error });
+    })
+};
+
+// Get existing product by id
+exports.find = function (req, res) 
+{
+    const id = req.params && req.params.id;
+    if (!id)
+    {
+        return res.json({ error: "Error with getting product. Id missing" });
+    }
+    Product.findById(id).then(product =>
+    {
+        if (!product)
+            return res.json({ error: "Product with id not found" });
+        return res.json({ id: product._id, ...product._doc })
+    })
+    .catch(error =>
+    {
+        res.json({ error });
     })
 };
 
@@ -57,7 +76,7 @@ exports.update = async (req, res) =>
                 error: "Bad request! Product id missing",
                 code: 401
             })
-        const product = await Product.findOne({ _id: req.body.id })
+        const product = await Product.findById(req.body.id)
         product.product_name = req.body.product_name || product.product_name;
         product.product_varieties = req.body.product_varieties || product.product_varieties;
         product.product_description = req.body.product_description || product.value;

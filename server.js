@@ -14,7 +14,8 @@ app.use(bodyParser.json());
 
 app.use(cors());
 
-mongoose.connect(process.env.MONGODB_URL, { 
+mongoose.connect(process.env.NODE_ENV === "test" ? "mongodb://localhost:27017/testDB": process.env.MONGODB_URL,
+{ 
 	useNewUrlParser: true,
 	useUnifiedTopology: true
 });
@@ -45,3 +46,5 @@ app.use('/', apiRoutes);
 app.listen(port, function () {
      console.log("API running on port " + port);
 });
+
+module.exports = app;
