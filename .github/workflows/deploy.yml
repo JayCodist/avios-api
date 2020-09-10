@@ -14,4 +14,4 @@ jobs:
         with:
           heroku_api_key: ${{secrets.HEROKU_API_KEY}}
           heroku_app_name: "avios-api"
-          heroku_email: "YOUR EMAIL"
+          heroku_email: "brightmann009@gmail.com"
