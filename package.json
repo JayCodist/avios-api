@@ -4,7 +4,7 @@
   "description": "express api for avios app",
   "main": "server.js",
   "scripts": {
-    "test": "SET NODE_ENV=test && mocha --timeout 6000  --exit",
+    "test": "SET NODE_ENV=test&& mocha --timeout 6000 --exit",
     "start": "node server.js"
   },
   "engines": {
